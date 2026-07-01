@@ -131,7 +131,98 @@ document.addEventListener("DOMContentLoaded", function () {
 
 `;
 
-      
+
+const listaMateriais = [
+
+    {
+        grupo: "TECIDOS",
+        codigo: "00.04.0097",
+        descricao: "TECNOLOGIC (PERMANENTE)",
+        consumo: "1.000",
+        unidade: "MT",
+        principal: true
+    },
+
+    {
+        grupo: "TECIDOS",
+        codigo: "00.07.0021",
+        descricao: "ENTRETELA 7224 (POLO/PLANO/FUSIONADA)",
+        consumo: "0.060",
+        unidade: "MT",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.02.0002",
+        descricao: "VELCRO 20MM (CX750M)",
+        consumo: "0.060",
+        unidade: "MT",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.03.0012",
+        descricao: "ELÁSTICO 50MM SHORT",
+        consumo: "0.880",
+        unidade: "UN",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.04.0044",
+        descricao: "CADARÇO 1,55CM P/ CALÇÃO ADULTO",
+        consumo: "1.000",
+        unidade: "UN",
+        principal: false
+    },
+
+    {
+        grupo: "EMBALAGEM",
+        codigo: "20.01.0002",
+        descricao: "EMBALAGEM TRANSPARENTE",
+        consumo: "1.000",
+        unidade: "UN",
+        principal: false
+    }
+
+];
+
+const tabelaMateriais = document.getElementById("tabelaMateriais");
+
+tabelaMateriais.innerHTML = "";
+listaMateriais.forEach(material => {
+
+    tabelaMateriais.innerHTML += `
+
+        <tr>
+
+            <td>${material.grupo}</td>
+
+            <td>${material.codigo}</td>
+
+            <td>${material.descricao}</td>
+
+            <td>${material.consumo}</td>
+
+            <td>${material.unidade}</td>
+
+            <td style="text-align:center;">
+                ${material.principal ? "✔️" : ""}
+            </td>
+
+        </tr>
+
+    `;
+
+});
+
+// Atualiza a quantidade de materiais
+document.getElementById("totalMateriais").textContent =
+    `${listaMateriais.length} materiais`;
+
         const referencia = "220750";
 
 document.getElementById("fotoFrente").src =

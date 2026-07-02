@@ -1,4 +1,4 @@
-
+const API_URL = "http://192.168.0.138:8000";
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -7,33 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const conteudo = document.getElementById("conteudoProduto");
 
 
-    btnPesquisar.addEventListener("click", pesquisar);
+    btnPesquisar.addEventListener("click", carregarProduto);
 
     codigoProduto.addEventListener("keydown", function (e) {
 
         if (e.key === "Enter") {
-            pesquisar();
+            carregarProduto();
         }
 
     });
 
-  function pesquisar() {
-
-    setTimeout(function(){
+  
 
 
+function carregarProduto() {
         conteudo.style.display = "block";
+    
+        const produto = document.getElementById("referencia").value.trim()
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYl91c2VyIjoiaXRhbG8ubGV2aSIsImRiX3Bhc3N3b3JkIjoiSXRhbG9FeHRyZW1lMEAifQ.2zcew1y30lVmeX6JhoDpDRnp7Fr_TWhvPq89eYtFQpU'
+        try {
+            const response = await fetch(`${API_URL}/ficha/${produto}`, {
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                }
+            });
 
-        carregarProduto();
+            const dados = await response.json();
+            if (!response.ok) {
+            throw new Error(dados.detail || 'Erro ao consultar OP');
+        }
 
-    },800);
-
-}
-
-
-    function carregarProduto() {
-
-        document.getElementById("referencia").value = "220750";
 
         document.getElementById("descricao").value =
             "CALÇÃO LONGO CONTOUR";
@@ -51,85 +55,90 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const tabela = document.getElementById("tabelaCores");
 
-     tabela.innerHTML = `
+            tabela.innerHTML = `
 
-<tr>
+                <tr>
 
-    <td>01</td>
+                    <td>01</td>
 
-    <td>Branco</td>
+                    <td>Branco</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#FFFFFF;"></div>
+                        <div class="corPreview"
+                            style="background:#FFFFFF;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-    <td>02</td>
+                    <td>02</td>
 
-    <td>Preto</td>
+                    <td>Preto</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#000000;"></div>
+                        <div class="corPreview"
+                            style="background:#000000;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-    <td>03</td>
+                    <td>03</td>
 
-    <td>Azul Marinho</td>
+                    <td>Azul Marinho</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#1E3A8A;"></div>
+                        <div class="corPreview"
+                            style="background:#1E3A8A;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-    <td>04</td>
+                    <td>04</td>
 
-    <td>Vermelho</td>
+                    <td>Vermelho</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#D62828;"></div>
+                        <div class="corPreview"
+                            style="background:#D62828;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-`;
+                `;
+        }
+
+        catch (error) {
+
+        }
 
       
         const referencia = "220750";

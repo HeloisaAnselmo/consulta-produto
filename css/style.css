@@ -173,18 +173,29 @@ header{
 }
 
 .campo input,
-.campo textarea{
+.campo textarea,
+.campo select{
     border:1px solid #979797;
     border-radius:8px;
     background:#ddd5d5;
     padding:12px;
     font-size:15px;
-
 }
 
 .campo textarea{
     resize:none;
 
+}
+
+.campo select{
+    height:46px;
+    color:#000;
+}
+
+#observacao{
+    width:100%;
+    min-height:130px;
+    resize:vertical;
 }
 
 table{
@@ -462,11 +473,6 @@ tbody tr:hover{
     grid-column:1 / 3;
 }
 
-.composicaoCard textarea{
-    width:100%;
-    min-height:130px;
-}
-
 @media(max-width:900px){
 
     .cardsDados{
@@ -551,4 +557,81 @@ tbody tr:hover{
     color:white;
     z-index:2;
 
+}
+
+#painelFiltros{
+    display:none;
+}
+
+#painelFiltros{
+    display:none;
+}
+
+#painelFiltros.aberto{
+    display:grid;
+}
+
+.filtros{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    align-items:end;
+}
+
+.filtros input,
+.filtros select{
+    width:100%;
+    height:45px;
+    border-radius:8px;
+    padding:0 12px;
+    border:1px solid #979797;
+    background:#ddd5d5;
+}
+
+.btnPesquisarFiltro{
+    width: 100%;
+    height: 46px;
+    border: none;
+    border-radius: 8px;
+    background: #3b3a3b;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all .3s ease;
+}
+
+
+.btnPesquisarFiltro i{
+    font-size: 16px;
+}
+
+.acoesPesquisa{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 15px;
+}
+
+.btnFiltro{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #3b3a3b;;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.btnFiltro i{
+    font-size: 16px;
 }

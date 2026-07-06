@@ -3,33 +3,35 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const btnPesquisar = document.getElementById("btnPesquisar");
-    const codigoProduto = document.getElementById("codigoProduto");
+    
+    
     const conteudo = document.getElementById("conteudoProduto");
 
 
     btnPesquisar.addEventListener("click", pesquisar);
 
-    codigoProduto.addEventListener("keydown", function (e) {
-
-        if (e.key === "Enter") {
-            pesquisar();
-        }
-
-    });
 
   function pesquisar() {
 
-    setTimeout(function(){
+    const filtros = {
+        referencia: document.getElementById("filtroReferencia")?.value || "",
+        descricao: document.getElementById("filtroDescricao")?.value || "",
+        grupo: document.getElementById("filtroGrupo")?.value || "",
+        categoria: document.getElementById("filtroCategoria")?.value || "",
+        colecao: document.getElementById("filtroColecao")?.value || "",
+        revenda: document.getElementById("filtroRevenda")?.value || "",
+        permanente: document.getElementById("filtroPermanente")?.value || ""
+    };
 
+    console.log(filtros);
+
+    setTimeout(function () {
 
         conteudo.style.display = "block";
-
         carregarProduto();
 
-    },800);
-
+    }, 800);
 }
-
 
     function carregarProduto() {
 
@@ -43,11 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("empresa").value =
             "PENA SURF";
-
-        document.getElementById("composicao").value =
-            "90% POLIÉSTER\n10% ELASTANO";
-
-        // ------------------------------
 
         const tabela = document.getElementById("tabelaCores");
 
@@ -314,4 +311,14 @@ modal.addEventListener("click", function (e) {
 
     });
 
+    const btnMostrarFiltros = document.getElementById("btnMostrarFiltros");
+    const painelFiltros = document.getElementById("painelFiltros");
+
+    btnMostrarFiltros.addEventListener("click", () => {
+
+        painelFiltros.classList.toggle("aberto");
+
+    });
+
 });
+

@@ -41,22 +41,60 @@
 
             <h2>Pesquisar Produto</h2>
 
-            <div class="campoPesquisa">
+    <div class="acoesPesquisa">
+        <button id="btnMostrarFiltros" class="btnFiltro">
+            <i class="bi bi-search"></i>
+            Pesquisar pelo Filtro
+        </button>
+    </div>
 
-                <input
-                    type="text"
-                    id="codigoProduto"
-                    placeholder="Digite ou leia o código de barras">
+    <div class="filtros" id="painelFiltros">
 
-                <button id="btnPesquisar">
+    <div class="campo">
+        <label>Referência</label>
+        <input type="text" id="filtroReferencia">
+    </div>
 
-                    <i class="bi bi-search"></i>
+    <div class="campo">
+        <label>Grupo</label>
+        <select id="filtroGrupo">
+            <option value="">Todos</option>
+        </select>
+    </div>
 
-                    Pesquisar
+    <div class="campo">
+        <label>Categoria</label>
+        <select id="filtroCategoria">
+            <option value="">Todas</option>
+        </select>
+    </div>
 
-                </button>
-                    
-            </div>
+    <div class="campo">
+        <label>Revenda</label>
+        <select id="filtroRevenda">
+            <option value="">Todos</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+        </select>
+    </div>
+
+    <div class="campo">
+        <label>Permanente</label>
+        <select id="filtroPermanente">
+            <option value="">Todos</option>
+            <option value="S">Sim</option>
+            <option value="N">Não</option>
+        </select>
+    </div>
+
+    <div class="campo">
+    <button id="btnPesquisar" class="btnPesquisarFiltro">
+        <i class="bi bi-search"></i>
+        Buscar
+    </button>
+</div>
+
+</div>
 
         </section>
         <section id="conteudoProduto">
@@ -92,13 +130,37 @@
 
         <div class="gridCard">
 
-            <!-- Referência -->
-            <div class="campo">
-                <label>Referência</label>
-                <input type="text" id="referencia" readonly>
-            </div>
+    <div class="campo">
+        <label>Referência</label>
+        <input type="text" id="referencia" readonly>
+    </div>
 
-            <!-- Descrição -->
+    
+    <div class="campo">
+        <label>Referência Fabricante</label>
+        <input type="text" id="referenciaFabricante" readonly>
+    </div>
+
+    
+    <div class="campo">
+        <label>Revenda</label>
+        <select id="revenda" disabled>
+            <option value=""></option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+    </div>
+
+    
+    <div class="campo">
+        <label>Permanente</label>
+        <select id="permanente" >
+            <option value=""></option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+    </div>
+
             <div class="campo campoInteiro">
                 <label>Descrição</label>
                 <input type="text" id="descricao" readonly>
@@ -170,11 +232,6 @@
                 <input type="text" id="periodoEntrega" readonly>
             </div>
 
-            <div class="campo campoInteiro">
-                <label>Composição</label>
-                <input type="text" id="composicaoResumida" readonly>
-            </div>
-
             <div class="campo">
                 <label>Rota / Operação</label>
                 <input type="text" id="rotaOperacao" readonly>
@@ -190,19 +247,17 @@
                 <input type="text" id="empresa" readonly>
             </div>
 
+            <div class="campo campoInteiro">
+            <label>Observação</label>
+            <textarea id="observacao" readonly></textarea>
+        </div>
         </div>
 
     </div>
 
 </div>
 
-<div class="cardDados composicaoCard">
 
-    <h3>Composição Têxtil</h3>
-    <textarea id="composicao" rows="5" readonly></textarea>
-</div>
-
-</div>
 <div class="conteudoTab" id="materiais">
 
     <div class="cabecalhoTabela">

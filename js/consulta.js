@@ -3,33 +3,35 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     const btnPesquisar = document.getElementById("btnPesquisar");
-    const codigoProduto = document.getElementById("codigoProduto");
+    
+    
     const conteudo = document.getElementById("conteudoProduto");
 
 
     btnPesquisar.addEventListener("click", pesquisar);
 
-    codigoProduto.addEventListener("keydown", function (e) {
-
-        if (e.key === "Enter") {
-            pesquisar();
-        }
-
-    });
 
   function pesquisar() {
 
-    setTimeout(function(){
+    const filtros = {
+        referencia: document.getElementById("filtroReferencia")?.value || "",
+        descricao: document.getElementById("filtroDescricao")?.value || "",
+        grupo: document.getElementById("filtroGrupo")?.value || "",
+        categoria: document.getElementById("filtroCategoria")?.value || "",
+        colecao: document.getElementById("filtroColecao")?.value || "",
+        revenda: document.getElementById("filtroRevenda")?.value || "",
+        permanente: document.getElementById("filtroPermanente")?.value || ""
+    };
 
+    console.log(filtros);
+
+    setTimeout(function () {
 
         conteudo.style.display = "block";
-
         carregarProduto();
 
-    },800);
-
+    }, 800);
 }
-
 
     function carregarProduto() {
 
@@ -43,11 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         document.getElementById("empresa").value =
             "PENA SURF";
-
-        document.getElementById("composicao").value =
-            "90% POLIÉSTER\n10% ELASTANO";
-
-        // ------------------------------
 
         const tabela = document.getElementById("tabelaCores");
 
@@ -131,7 +128,98 @@ document.addEventListener("DOMContentLoaded", function () {
 
 `;
 
-      
+
+const listaMateriais = [
+
+    {
+        grupo: "TECIDOS",
+        codigo: "00.04.0097",
+        descricao: "TECNOLOGIC (PERMANENTE)",
+        consumo: "1.000",
+        unidade: "MT",
+        principal: true
+    },
+
+    {
+        grupo: "TECIDOS",
+        codigo: "00.07.0021",
+        descricao: "ENTRETELA 7224 (POLO/PLANO/FUSIONADA)",
+        consumo: "0.060",
+        unidade: "MT",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.02.0002",
+        descricao: "VELCRO 20MM (CX750M)",
+        consumo: "0.060",
+        unidade: "MT",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.03.0012",
+        descricao: "ELÁSTICO 50MM SHORT",
+        consumo: "0.880",
+        unidade: "UN",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.04.0044",
+        descricao: "CADARÇO 1,55CM P/ CALÇÃO ADULTO",
+        consumo: "1.000",
+        unidade: "UN",
+        principal: false
+    },
+
+    {
+        grupo: "EMBALAGEM",
+        codigo: "20.01.0002",
+        descricao: "EMBALAGEM TRANSPARENTE",
+        consumo: "1.000",
+        unidade: "UN",
+        principal: false
+    }
+
+];
+
+const tabelaMateriais = document.getElementById("tabelaMateriais");
+
+tabelaMateriais.innerHTML = "";
+listaMateriais.forEach(material => {
+
+    tabelaMateriais.innerHTML += `
+
+        <tr>
+
+            <td>${material.grupo}</td>
+
+            <td>${material.codigo}</td>
+
+            <td>${material.descricao}</td>
+
+            <td>${material.consumo}</td>
+
+            <td>${material.unidade}</td>
+
+            <td style="text-align:center;">
+                ${material.principal ? "✔️" : ""}
+            </td>
+
+        </tr>
+
+    `;
+
+});
+
+// Atualiza a quantidade de materiais
+document.getElementById("totalMateriais").textContent =
+    `${listaMateriais.length} materiais`;
+
         const referencia = "220750";
 
 document.getElementById("fotoFrente").src =
@@ -223,4 +311,14 @@ modal.addEventListener("click", function (e) {
 
     });
 
+    const btnMostrarFiltros = document.getElementById("btnMostrarFiltros");
+    const painelFiltros = document.getElementById("painelFiltros");
+
+    btnMostrarFiltros.addEventListener("click", () => {
+
+        painelFiltros.classList.toggle("aberto");
+
+    });
+
 });
+

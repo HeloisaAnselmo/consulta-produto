@@ -97,10 +97,7 @@ header{
     border-radius:10px;
     box-shadow:0 2px 10px rgba(0,0,0,.08);
     overflow:hidden;
-    display:block;
     animation:aparecer .4s ease;
-    
-
 }
 
 
@@ -634,4 +631,38 @@ tbody tr:hover{
 
 .btnFiltro i{
     font-size: 16px;
+}
+
+.mensagemInicial{
+    margin-top:40px;
+    padding:80px 20px;
+    background:rgba(28,3,87,.25);
+    border-radius:12px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    color:#d7d7d7;
+}
+
+.mensagemInicial i{
+    font-size:90px;
+    color:#8b8b8b;
+    margin-bottom:20px;
+}
+
+.mensagemInicial h3{
+    font-size:28px;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.mensagemInicial p{
+    font-size:16px;
+    color:#9c9c9c;
+    max-width:500px;
 }

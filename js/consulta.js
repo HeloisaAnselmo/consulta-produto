@@ -6,6 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     
     
     const conteudo = document.getElementById("conteudoProduto");
+    conteudo.style.display = "none";
+    const mensagemInicial = document.getElementById("mensagemInicial");
+    conteudo.style.display = "none";
+    mensagemInicial.style.display = "flex";
 
 
     btnPesquisar.addEventListener("click", pesquisar);
@@ -14,8 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
   function pesquisar() {
 
     const filtros = {
-        referencia: document.getElementById("filtroReferencia")?.value || "",
-        descricao: document.getElementById("filtroDescricao")?.value || "",
+        referencia: document.getElementById("filtroReferencia")?.value.trim() || "",
+        descricao: document.getElementById("filtroDescricao")?.value.trim() || "",
         grupo: document.getElementById("filtroGrupo")?.value || "",
         categoria: document.getElementById("filtroCategoria")?.value || "",
         colecao: document.getElementById("filtroColecao")?.value || "",
@@ -23,12 +27,26 @@ document.addEventListener("DOMContentLoaded", function () {
         permanente: document.getElementById("filtroPermanente")?.value || ""
     };
 
-    console.log(filtros);
+    const pesquisou =
+        filtros.referencia ||
+        filtros.descricao ||
+        filtros.grupo ||
+        filtros.categoria ||
+        filtros.colecao ||
+        filtros.revenda ||
+        filtros.permanente;
+
+    if (!pesquisou) {
+        conteudo.style.display = "none";
+        alert("Informe pelo menos um filtro para pesquisar.");
+        return;
+    }
 
     setTimeout(function () {
 
-        conteudo.style.display = "block";
         carregarProduto();
+        mensagemInicial.style.display = "none";
+        conteudo.style.display = "block";
 
     }, 800);
 }

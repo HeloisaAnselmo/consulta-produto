@@ -3,41 +3,57 @@ const API_URL = "http://192.168.0.138:8000";
 document.addEventListener("DOMContentLoaded", function () {
 
     const btnPesquisar = document.getElementById("btnPesquisar");
-    const codigoProduto = document.getElementById("codigoProduto");
+    
+    
     const conteudo = document.getElementById("conteudoProduto");
+    conteudo.style.display = "none";
+    const mensagemInicial = document.getElementById("mensagemInicial");
+    conteudo.style.display = "none";
+    mensagemInicial.style.display = "flex";
 
 
     btnPesquisar.addEventListener("click", carregarProduto);
 
-    codigoProduto.addEventListener("keydown", function (e) {
 
-        if (e.key === "Enter") {
-            carregarProduto();
-        }
+  function pesquisar() {
 
-    });
+    const filtros = {
+        referencia: document.getElementById("filtroReferencia")?.value.trim() || "",
+        descricao: document.getElementById("filtroDescricao")?.value.trim() || "",
+        grupo: document.getElementById("filtroGrupo")?.value || "",
+        categoria: document.getElementById("filtroCategoria")?.value || "",
+        colecao: document.getElementById("filtroColecao")?.value || "",
+        revenda: document.getElementById("filtroRevenda")?.value || "",
+        permanente: document.getElementById("filtroPermanente")?.value || ""
+    };
 
-  
+    const pesquisou =
+        filtros.referencia ||
+        filtros.descricao ||
+        filtros.grupo ||
+        filtros.categoria ||
+        filtros.colecao ||
+        filtros.revenda ||
+        filtros.permanente;
 
+    if (!pesquisou) {
+        conteudo.style.display = "none";
+        alert("Informe pelo menos um filtro para pesquisar.");
+        return;
+    }
 
-function carregarProduto() {
+    setTimeout(function () {
+
+        carregarProduto();
+        mensagemInicial.style.display = "none";
         conteudo.style.display = "block";
-    
-        const produto = document.getElementById("referencia").value.trim()
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYl91c2VyIjoiaXRhbG8ubGV2aSIsImRiX3Bhc3N3b3JkIjoiSXRhbG9FeHRyZW1lMEAifQ.2zcew1y30lVmeX6JhoDpDRnp7Fr_TWhvPq89eYtFQpU'
-        try {
-            const response = await fetch(`${API_URL}/ficha/${produto}`, {
-                method: "GET",
-                headers: {
-                    'Authorization': `Bearer ${token}`,
-                }
-            });
 
-            const dados = await response.json();
-            if (!response.ok) {
-            throw new Error(dados.detail || 'Erro ao consultar OP');
-        }
+    }, 800);
+}
 
+    function carregarProduto() {
+
+        document.getElementById("referencia").value = "220750";
 
         document.getElementById("descricao").value =
             "CALÇÃO LONGO CONTOUR";
@@ -47,11 +63,6 @@ function carregarProduto() {
 
         document.getElementById("empresa").value =
             "PENA SURF";
-
-        document.getElementById("composicao").value =
-            "90% POLIÉSTER\n10% ELASTANO";
-
-        // ------------------------------
 
         const tabela = document.getElementById("tabelaCores");
 
@@ -133,14 +144,100 @@ function carregarProduto() {
 
                 </tr>
 
-                `;
-        }
+`;
 
-        catch (error) {
 
-        }
+const listaMateriais = [
 
-      
+    {
+        grupo: "TECIDOS",
+        codigo: "00.04.0097",
+        descricao: "TECNOLOGIC (PERMANENTE)",
+        consumo: "1.000",
+        unidade: "MT",
+        principal: true
+    },
+
+    {
+        grupo: "TECIDOS",
+        codigo: "00.07.0021",
+        descricao: "ENTRETELA 7224 (POLO/PLANO/FUSIONADA)",
+        consumo: "0.060",
+        unidade: "MT",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.02.0002",
+        descricao: "VELCRO 20MM (CX750M)",
+        consumo: "0.060",
+        unidade: "MT",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.03.0012",
+        descricao: "ELÁSTICO 50MM SHORT",
+        consumo: "0.880",
+        unidade: "UN",
+        principal: false
+    },
+
+    {
+        grupo: "AVIAMENTO",
+        codigo: "10.04.0044",
+        descricao: "CADARÇO 1,55CM P/ CALÇÃO ADULTO",
+        consumo: "1.000",
+        unidade: "UN",
+        principal: false
+    },
+
+    {
+        grupo: "EMBALAGEM",
+        codigo: "20.01.0002",
+        descricao: "EMBALAGEM TRANSPARENTE",
+        consumo: "1.000",
+        unidade: "UN",
+        principal: false
+    }
+
+];
+
+const tabelaMateriais = document.getElementById("tabelaMateriais");
+
+tabelaMateriais.innerHTML = "";
+listaMateriais.forEach(material => {
+
+    tabelaMateriais.innerHTML += `
+
+        <tr>
+
+            <td>${material.grupo}</td>
+
+            <td>${material.codigo}</td>
+
+            <td>${material.descricao}</td>
+
+            <td>${material.consumo}</td>
+
+            <td>${material.unidade}</td>
+
+            <td style="text-align:center;">
+                ${material.principal ? "✔️" : ""}
+            </td>
+
+        </tr>
+
+    `;
+
+});
+
+// Atualiza a quantidade de materiais
+document.getElementById("totalMateriais").textContent =
+    `${listaMateriais.length} materiais`;
+
         const referencia = "220750";
 
 document.getElementById("fotoFrente").src =
@@ -232,4 +329,14 @@ modal.addEventListener("click", function (e) {
 
     });
 
+    const btnMostrarFiltros = document.getElementById("btnMostrarFiltros");
+    const painelFiltros = document.getElementById("painelFiltros");
+
+    btnMostrarFiltros.addEventListener("click", () => {
+
+        painelFiltros.classList.toggle("aberto");
+
+    });
+
 });
+

@@ -666,3 +666,47 @@ tbody tr:hover{
     color:#9c9c9c;
     max-width:500px;
 }
+
+.cabecalhoEstoque{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:20px;
+
+}
+
+.cabecalhoEstoque .campo{
+
+    width:220px;
+
+}
+
+.tabelaEstoque{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.tabelaEstoque th{
+
+    background:#606060;
+    color:white;
+
+}
+
+.tabelaEstoque th,
+.tabelaEstoque td{
+
+    padding:12px;
+    text-align:center;
+
+}
+
+.campoPreco{
+
+    margin-top:20px;
+    max-width:220px;
+
+}

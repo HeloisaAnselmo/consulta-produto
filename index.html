@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+    
     <header>
     <div class="logo">
 
@@ -34,374 +34,251 @@
     </header>
     
 
-    <main class="container">
+<main class="container">
 
+    <section class="pesquisa">
+        <h2>Pesquisar Produto</h2>
+        <div class="acoesPesquisa">
+            <button id="btnMostrarFiltros" class="btnFiltro">
+                <i class="bi bi-search"></i>
+                Pesquisar pelo Filtro
+            </button>
+        </div>
 
-        <section class="pesquisa">
+        <div class="filtros" id="painelFiltros">
+            <div class="campo">
+                <label>Referência</label>
+                <input type="text" id="filtroReferencia">
+            </div>
 
-            <h2>Pesquisar Produto</h2>
+            <div class="campo">
+                <label>Grupo</label>
+                <select id="filtroGrupo">
+                    <option value="">Todos</option>
+                </select>
+            </div>
 
-    <div class="acoesPesquisa">
-        <button id="btnMostrarFiltros" class="btnFiltro">
+            <div class="campo">
+                <label>Categoria</label>
+                <select id="filtroCategoria">
+                    <option value="">Todas</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Coleção</label>
+                <select id="filtroColeção">
+                    <option value="">Todos</option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label>Permanente</label>
+                <select id="filtroPermanente">
+                    <option value="">Todos</option>
+                    <option value="S">Sim</option>
+                    <option value="N">Não</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <button id="btnPesquisar" class="btnPesquisarFiltro">
+                    <i class="bi bi-search"></i>
+                    Buscar
+                </button>
+            </div>
+        </div>
+
+        <div id="mensagemInicial" class="mensagemInicial">
             <i class="bi bi-search"></i>
-            Pesquisar pelo Filtro
-        </button>
-    </div>
+            <h3>Digite no campo acima para pesquisar produtos</h3>
+            <p>Utilize a referência ou os filtros disponíveis para localizar um produto.</p>
+        </div>
+    </section>
 
-    <div class="filtros" id="painelFiltros">
-
-    <div class="campo">
-        <label>Referência</label>
-        <input type="text" id="filtroReferencia">
-    </div>
-
-    <div class="campo">
-        <label>Grupo</label>
-        <select id="filtroGrupo">
-            <option value="">Todos</option>
-        </select>
-    </div>
-
-    <div class="campo">
-        <label>Categoria</label>
-        <select id="filtroCategoria">
-            <option value="">Todas</option>
-        </select>
-    </div>
-
-    <div class="campo">
-        <label>Coleção</label>
-        <select id="filtroColecao" 
-        >
-            <option value="">Todos</option>
-            <option value="S">Sim</option>
-            <option value="N">Não</option>
-        </select>
-    </div>
-
-    <div class="campo">
-        <label>Permanente</label>
-        <select id="filtroPermanente">
-            <option value="">Todos</option>
-            <option value="S">Sim</option>
-            <option value="N">Não</option>
-        </select>
-    </div>
-
-    <div class="campo">
-    <button id="btnPesquisar" class="btnPesquisarFiltro">
-        <i class="bi bi-search"></i>
-        Buscar
-    </button>
-</div>
-
-</div>
-
-<div id="mensagemInicial" class="mensagemInicial">
-    <i class="bi bi-search"></i>
-    <h3>Digite no campo acima para pesquisar produtos</h3>
-    <p>
-        Utilize a referência ou os filtros disponíveis para localizar um produto.
-    </p>
-
-</div>
-
-        </section>
-        <section id="conteudoProduto">
-            <div class="tabs">
-
-                <button class="tab active" data-tab="dados">
-                    Dados Gerais
-                </button>
-
-                <button class="tab" data-tab="cores">
-                    Cores
-                </button>
-               
-                <button class="tab" data-tab="estoque">
-                    Estoque
-                </button>
-
-                <button class="tab" data-tab="operacoes">
-                    Operações
-                </button>
-
-                <button class="tab" data-tab="imagens">
-                    Imagens
-                </button>
-
-            </div>
-            <div class="conteudoTab active" id="dados">
-
-    <div class="cardsDados">
-
-        <!-- Card 1 -->
-        <div class="cardDados">
-
-            <h3>Classificação do Produto</h3>
-
-            <div class="gridCard">
-
-                <div class="campo">
-                    <label>Referência</label>
-                    <input type="text" id="referencia" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Permanente</label>
-                    <select id="permanente" disabled>
-                        <option></option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                    </select>
-                </div>
-
-                <div class="campo campoInteiro">
-                    <label>Descrição</label>
-                    <input type="text" id="descricao" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Grupo</label>
-                    <input type="text" id="grupo" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Subgrupo</label>
-                    <input type="text" id="subgrupo" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Categoria</label>
-                    <input type="text" id="categoria" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Subcategoria</label>
-                    <input type="text" id="subcategoria" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Tipo</label>
-                    <input type="text" id="tipo" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Grife</label>
-                    <input type="text" id="grife" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Linha</label>
-                    <input type="text" id="linha" readonly>
-                </div>
-
-                <div class="campo campoInteiro">
-                    <label>Material Principal</label>
-                    <input type="text" id="materialPrincipal" readonly>
-                </div>
-
-            </div>
-
+    <section id="conteudoProduto">
+        <div class="tabs">
+            <button class="tab active" data-tab="dados">Dados Gerais</button>
+            <button class="tab" data-tab="cores">Cores</button>
+            <button class="tab" data-tab="materiais">Materiais</button>
+            <button class="tab" data-tab="operacoes">Operações</button>
+            <button class="tab" data-tab="imagens">Imagens</button>
         </div>
 
-        <!-- Card 2 -->
-        <div class="cardDados">
-
-            <h3>Informações Operacionais</h3>
-
-            <div class="gridCard">
-
-                <div class="campo">
-                    <label>Status Atual</label>
-                    <input type="text" id="statusAtual" readonly>
+        <div class="conteudoTab active" id="dados">
+            <div class="cardsDados">
+                <div class="cardDados">
+                    <h3>Classificação do Produto</h3>
+                    <div class="gridCard">
+                        <div class="campo">
+                            <label>Referência</label>
+                            <input type="text" id="referencia" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Permanente</label>
+                            <input id="permanente" disabled>
+                        </div>
+                        <div class="campo campoInteiro">
+                            <label>Descrição</label>
+                            <input type="text" id="descricao" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Grupo</label>
+                            <input type="text" id="grupo" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Subgrupo</label>
+                            <input type="text" id="subgrupo" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Categoria</label>
+                            <input type="text" id="categoria" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Subcategoria</label>
+                            <input type="text" id="subcategoria" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Tipo</label>
+                            <input type="text" id="tipo" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Grife</label>
+                            <input type="text" id="grife" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Linha</label>
+                            <input type="text" id="linha" readonly>
+                        </div>
+                        <div class="campo campoInteiro">
+                            <label>Material Principal</label>
+                            <input type="text" id="materialPrincipal" readonly>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="campo">
-                    <label>Período Entregas</label>
-                    <input type="text" id="periodoEntrega" readonly>
+                <div class="cardDados">
+                    <h3>Informações Operacionais</h3>
+                    <div class="gridCard">
+                        <div class="campo">
+                            <label>Status Atual</label>
+                            <input type="text" id="statusAtual" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Período Entregas</label>
+                            <input type="text" id="periodoEntrega" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Rota / Operação</label>
+                            <input type="text" id="rotaOperacao" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Tamanhos</label>
+                            <input type="text" id="tamanhos" readonly>
+                        </div>
+                        <div class="campo campoInteiro">
+                            <label>Empresa</label>
+                            <input type="text" id="empresa" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Referência Fabricante</label>
+                            <input type="text" id="referenciaFabricante" readonly>
+                        </div>
+                        <div class="campo">
+                            <label>Revenda</label>
+                            <input id="revenda" disabled>
+                        </div>
+                        <div class="campo campoInteiro">
+                            <label>Observação</label>
+                            <textarea id="observacao" readonly></textarea>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="campo">
-                    <label>Rota / Operação</label>
-                    <input type="text" id="rotaOperacao" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Tamanhos</label>
-                    <input type="text" id="tamanhos" readonly>
-                </div>
-
-                <div class="campo campoInteiro">
-                    <label>Empresa</label>
-                    <input type="text" id="empresa" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Referência Fabricante</label>
-                    <input type="text" id="referenciaFabricante" readonly>
-                </div>
-
-                <div class="campo">
-                    <label>Revenda</label>
-                    <select id="revenda" disabled>
-                        <option></option>
-                        <option>Sim</option>
-                        <option>Não</option>
-                    </select>
-                </div>
-
-                <div class="campo campoInteiro">
-                    <label>Observação</label>
-                    <textarea id="observacao" readonly></textarea>
-                </div>
-
-                <div class="campo">
-                    <label>Preço</label>
-                    <input type="text" id="precoProduto" readonly>
-                </div>
-
             </div>
-
         </div>
 
-    </div>
+        <div class="conteudoTab" id="cores">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Cor</th>
+                        <th>Amostra</th>
 
-</div>
+                    </tr>
+                </thead>
+                <tbody id="tabelaCores">
+                </tbody>
+            </table>
+        </div>
 
-    
-    
+        <div class="conteudoTab" id="materiais">
+            <div class="cabecalhoTabela">
+                <h3>Ficha Técnica</h3>
+                <span id="totalMateriais">0 materiais</span>
             </div>
-            <div class="conteudoTab" id="cores">
-                <table>
+            <table class="tabelaMateriais">
+                <thead>
+                    <tr>
+                        <!-- <th>Grupo</th> -->
+                        <th>Código</th>
+                        <th>Descrição</th>
+                        <!-- <th>Consumo</th> -->
+                        <!-- <th>Unidade</th> -->
+                        <!-- <th>Principal</th> -->
+                    </tr>
+                </thead>
+                <tbody id="tabelaMateriais">
+                    </tbody>
+            </table>
+        </div>
+
+        <div class="conteudoTab" id="operacoes">
+            <div class="cabecalhoTabela">
+                <h3>Operações do Produto</h3>
+                <span id="totalOperacoes"></span>
+            </div>
+            <div class="scrollTabela">
+                <table class="tabelaOperacoes">
                     <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Cor</th>
-                            <th>Amostra</th>
-                            <th>Início Vigência</th>
-                            <th>Fim Vigência</th>
+                            <th>Seq.</th>
+                            <th>Fase</th>
+                            <th>Setor</th>
+                            <th>Recurso</th>
+                            <th>Custo Sugerido</th>
                         </tr>
                     </thead>
-                    <tbody id="tabelaCores">
-                    </tbody>
+                    <tbody id="tabelaOperacoes">
+                        </tbody>
                 </table>
             </div>
-
-            <div class="conteudoTab" id="estoque">
-
-                <div class="cabecalhoTabela">
-                    <h3>Estoque</h3>
-                    <span id="totalEstoque"></span>
-                </div>
-                <div class="campo" style="max-width:250px; margin-bottom:20px;">
-                    <label>Filial</label>
-                    <select id="filtroFilial">
-                        <option value="">Selecione</option>
-                        <option value="1">Matriz</option>
-                        <option value="2">Filial 1</option>
-                        <option value="3">Filial 2</option>
-                    </select>
-                </div>
-
-                <div class="scrollTabela">
-                    <table class="tabelaEstoque">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Cor</th>
-                                <th>Amostra</th>
-                                <th>Tamanho</th>
-                                <th>Quantidade</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabelaEstoque">
-                        </tbody>
-                    </table>
-                </div>
-
-                
-                    
-                </div>
-
-            </div>
-        
-            <div class="conteudoTab" id="operacoes">
-
-                <div class="cabecalhoTabela">
-                    <h3>Operações do Produto</h3>
-                    <span id="totalOperacoes"></span>
-                </div>
-
-                <div class="scrollTabela">
-                    <table class="tabelaOperacoes">
-
-                        <thead>
-
-                            <tr>
-                                <th>Seq.</th>
-                                <th>Fase</th>
-                                <th>Descrição</th>
-                                <th>Setor</th>
-                                <th>Recurso</th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="tabelaOperacoes">
-
-                        </tbody>
-
-           <div class="conteudoTab" id="cores">
-    <table>
-        <thead>
-            <tr>
-                <th>Código</th>
-                <th>Cor</th>
-                <th>Amostra</th>
-                <th>Início</th>
-                <th>Fim</th>
-            </tr>
-        </thead>
-        <tbody id="tabelaCores">
-        </tbody>
-    </table>
-</div>
-</div>
-           <div class="conteudoTab" id="imagens">
-    <div class="galeria">
-        <div class="cardImagem">
-            <h3>Foto Frente</h3>
-            <img
-                id="fotoFrente"
-                class="imagemProduto"
-                src="img/220750-frente.jpg"
-                alt="Foto Frente">
-            <p>Clique para ampliar</p>
         </div>
-                    <div class="cardImagem">
-                        <h3>Costas</h3>
-                        <img
-                            id="fotoCostas"
-                            class="imagemProduto"
-                            src="img/220750-costas.jpg"
-                            alt="Foto Costas">
-                            <p>Clique para ampliar</p>
-                    </div>
-                    <div class="cardImagem">
-                        <h3>Ficha Técnica</h3>
-                        <img
-                            id="fichaTecnica"
-                            class="imagemProduto"
-                            src="img/220750-ficha.jpg"
-                            alt="Ficha Técnica">
-                            <p>Clique para ampliar</p>
-                    </div>
+
+        <div class="conteudoTab" id="imagens">
+            <div class="galeria">
+                <div class="cardImagem">
+                    <h3>Foto Frente</h3>
+                    <img id="fotoFrente" class="imagemProduto" alt="Foto Frente">
+                    <p>Clique para ampliar</p>
+                </div>
+                <div class="cardImagem">
+                    <h3>Costas</h3>
+                    <img id="fotoCostas" class="imagemProduto" src="img/220750-costas.jpg" alt="Foto Costas">
+                    <p>Clique para ampliar</p>
+                </div>
+                <div class="cardImagem">
+                    <h3>Ficha Técnica</h3>
+                    <img id="fichaTecnica" class="imagemProduto" src="img/220750-ficha.jpg" alt="Ficha Técnica">
+                    <p>Clique para ampliar</p>
                 </div>
             </div>
+        </div>
 
-        </section>
-    </main>
+    </section>
+</main>
     <div id="modalImagem">
 
         <span id="fecharModal">&times;</span>

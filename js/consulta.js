@@ -1,3 +1,5 @@
+const API_URL = "http://192.168.0.138:8000";
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const btnPesquisar = document.getElementById("btnPesquisar");
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mensagemInicial.style.display = "flex";
 
 
-    btnPesquisar.addEventListener("click", pesquisar);
+    btnPesquisar.addEventListener("click", carregarProduto);
 
 
   function pesquisar() {
@@ -64,83 +66,83 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const tabela = document.getElementById("tabelaCores");
 
-     tabela.innerHTML = `
+            tabela.innerHTML = `
 
-<tr>
+                <tr>
 
-    <td>01</td>
+                    <td>01</td>
 
-    <td>Branco</td>
+                    <td>Branco</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#FFFFFF;"></div>
+                        <div class="corPreview"
+                            style="background:#FFFFFF;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-    <td>02</td>
+                    <td>02</td>
 
-    <td>Preto</td>
+                    <td>Preto</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#000000;"></div>
+                        <div class="corPreview"
+                            style="background:#000000;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-    <td>03</td>
+                    <td>03</td>
 
-    <td>Azul Marinho</td>
+                    <td>Azul Marinho</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#1E3A8A;"></div>
+                        <div class="corPreview"
+                            style="background:#1E3A8A;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
-<tr>
+                <tr>
 
-    <td>04</td>
+                    <td>04</td>
 
-    <td>Vermelho</td>
+                    <td>Vermelho</td>
 
-    <td>
+                    <td>
 
-        <div class="corPreview"
-             style="background:#D62828;"></div>
+                        <div class="corPreview"
+                            style="background:#D62828;"></div>
 
-    </td>
+                    </td>
 
-    <td>01/01/2024</td>
+                    <td>01/01/2024</td>
 
-    <td>31/12/2025</td>
+                    <td>31/12/2025</td>
 
-</tr>
+                </tr>
 
 `;
 

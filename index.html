@@ -71,7 +71,7 @@
 
     <div class="campo">
         <label>Coleção</label>
-        <select id="filtroColeção" 
+        <select id="filtroColecao" 
         >
             <option value="">Todos</option>
             <option value="S">Sim</option>
@@ -117,8 +117,9 @@
                 <button class="tab" data-tab="cores">
                     Cores
                 </button>
-                <button class="tab" data-tab="materiais">
-                    Materiais
+               
+                <button class="tab" data-tab="estoque">
+                    Estoque
                 </button>
 
                 <button class="tab" data-tab="operacoes">
@@ -131,195 +132,225 @@
 
             </div>
             <div class="conteudoTab active" id="dados">
-              <div class="cardsDados">
 
-    <!-- CARD 1 -->
-    <div class="cardDados">
+    <div class="cardsDados">
 
-        <h3>Classificação do Produto</h3>
+        <!-- Card 1 -->
+        <div class="cardDados">
 
-        <div class="gridCard">
+            <h3>Classificação do Produto</h3>
 
-    <div class="campo">
-        <label>Referência</label>
-        <input type="text" id="referencia" readonly>
-    </div>
- 
-    <div class="campo">
-        <label>Permanente</label>
-        <select id="permanente" disabled> 
-            <option value=""></option>
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
-    </div>
+            <div class="gridCard">
 
-            <div class="campo campoInteiro">
-                <label>Descrição</label>
-                <input type="text" id="descricao" readonly>
+                <div class="campo">
+                    <label>Referência</label>
+                    <input type="text" id="referencia" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Permanente</label>
+                    <select id="permanente" disabled>
+                        <option></option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+                </div>
+
+                <div class="campo campoInteiro">
+                    <label>Descrição</label>
+                    <input type="text" id="descricao" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Grupo</label>
+                    <input type="text" id="grupo" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Subgrupo</label>
+                    <input type="text" id="subgrupo" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Categoria</label>
+                    <input type="text" id="categoria" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Subcategoria</label>
+                    <input type="text" id="subcategoria" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Tipo</label>
+                    <input type="text" id="tipo" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Grife</label>
+                    <input type="text" id="grife" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Linha</label>
+                    <input type="text" id="linha" readonly>
+                </div>
+
+                <div class="campo campoInteiro">
+                    <label>Material Principal</label>
+                    <input type="text" id="materialPrincipal" readonly>
+                </div>
+
             </div>
 
-            <div class="campo">
-                <label>Grupo</label>
-                <input type="text" id="grupo" readonly>
-            </div>
+        </div>
 
-            <div class="campo">
-                <label>Subgrupo</label>
-                <input type="text" id="subgrupo" readonly>
-            </div>
+        <!-- Card 2 -->
+        <div class="cardDados">
 
-            <div class="campo">
-                <label>Categoria</label>
-                <input type="text" id="categoria" readonly>
-            </div>
+            <h3>Informações Operacionais</h3>
 
-            <div class="campo">
-                <label>Subcategoria</label>
-                <input type="text" id="subcategoria" readonly>
-            </div>
+            <div class="gridCard">
 
-            <div class="campo">
-                <label>Tipo</label>
-                <input type="text" id="tipo" readonly>
-            </div>
+                <div class="campo">
+                    <label>Status Atual</label>
+                    <input type="text" id="statusAtual" readonly>
+                </div>
 
-            <div class="campo">
-                <label>Grife</label>
-                <input type="text" id="grife" readonly>
-            </div>
+                <div class="campo">
+                    <label>Período Entregas</label>
+                    <input type="text" id="periodoEntrega" readonly>
+                </div>
 
-            <div class="campo">
-                <label>Linha</label>
-                <input type="text" id="linha" readonly>
-            </div>
+                <div class="campo">
+                    <label>Rota / Operação</label>
+                    <input type="text" id="rotaOperacao" readonly>
+                </div>
 
-            <div class="campo campoInteiro">
-                <label>Material Principal</label>
-                <input type="text" id="materialPrincipal" readonly>
+                <div class="campo">
+                    <label>Tamanhos</label>
+                    <input type="text" id="tamanhos" readonly>
+                </div>
+
+                <div class="campo campoInteiro">
+                    <label>Empresa</label>
+                    <input type="text" id="empresa" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Referência Fabricante</label>
+                    <input type="text" id="referenciaFabricante" readonly>
+                </div>
+
+                <div class="campo">
+                    <label>Revenda</label>
+                    <select id="revenda" disabled>
+                        <option></option>
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+                </div>
+
+                <div class="campo campoInteiro">
+                    <label>Observação</label>
+                    <textarea id="observacao" readonly></textarea>
+                </div>
+
+                <div class="campo">
+                    <label>Preço</label>
+                    <input type="text" id="precoProduto" readonly>
+                </div>
+
             </div>
 
         </div>
 
     </div>
 
-    <!-- CARD 2 -->
-    <div class="cardDados">
-
-        <h3>Informações Operacionais</h3>
-
-        <div class="gridCard">
-
-            <div class="campo">
-                <label>Status Atual</label>
-                <input type="text" id="statusAtual" readonly>
-            </div>
-
-            <div class="campo">
-                <label>Período Entregas</label>
-                <input type="text" id="periodoEntrega" readonly>
-            </div>
-
-            <div class="campo">
-                <label>Rota / Operação</label>
-                <input type="text" id="rotaOperacao" readonly>
-            </div>
-
-            <div class="campo">
-                <label>Tamanhos</label>
-                <input type="text" id="tamanhos" readonly>
-            </div>
-
-            <div class="campo campoInteiro">
-                <label>Empresa</label>
-                <input type="text" id="empresa" readonly>
-            </div>
-        <div class="campo">
-                <label>Referência Fabricante</label>
-                <input type="text" id="referenciaFabricante" readonly>
-            </div>
-
-            
-            <div class="campo">
-                <label>Revenda</label>
-                <select id="revenda" disabled>
-                    <option value=""></option>
-                    <option value="Sim">Sim</option>
-                    <option value="Não">Não</option>
-                </select>
-            </div>
-            <div class="campo campoInteiro">
-            <label>Observação</label>
-            <textarea id="observacao" readonly></textarea>
-        </div>
-        </div>
-
-    </div>
-
 </div>
 
-
-<div class="conteudoTab" id="materiais">
-
-    <div class="cabecalhoTabela">
-
-        <h3>Ficha Técnica</h3>
-
-        <span id="totalMateriais">0 materiais</span>
-
-    </div>
-        <table class="tabelaMateriais">
-            <thead>
-
-                    <tr>
-                        <th>Grupo</th>
-                        <th>Código</th>
-                        <th>Descrição</th>
-                        <th>Consumo</th>
-                        <th>Unidade</th>
-                        <th>Principal</th>
-                    </tr>
-
-            </thead>
-
-                <tbody id="tabelaMateriais">
-
-                </tbody>
-
-        </table>
-
-</div>
-</div>
-
-   <div class="conteudoTab" id="operacoes">
-
-    <div class="cabecalhoTabela">
-        <h3>Operações do Produto</h3>
-        <span id="totalOperacoes"></span>
-    </div>
-
-    <div class="scrollTabela">
-                <table class="tabelaOperacoes">
-
+    
+    
+            </div>
+            <div class="conteudoTab" id="cores">
+                <table>
                     <thead>
-
                         <tr>
-                            <th>Seq.</th>
-                            <th>Fase</th>
-                            <th>Descrição</th>
-                            <th>Setor</th>
-                            <th>Recurso</th>
+                            <th>Código</th>
+                            <th>Cor</th>
+                            <th>Amostra</th>
+                            <th>Início Vigência</th>
+                            <th>Fim Vigência</th>
                         </tr>
-
                     </thead>
-
-                    <tbody id="tabelaOperacoes">
-
+                    <tbody id="tabelaCores">
                     </tbody>
-
                 </table>
-    </div>
-</div>
+            </div>
+
+            <div class="conteudoTab" id="estoque">
+
+                <div class="cabecalhoTabela">
+                    <h3>Estoque</h3>
+                    <span id="totalEstoque"></span>
+                </div>
+                <div class="campo" style="max-width:250px; margin-bottom:20px;">
+                    <label>Filial</label>
+                    <select id="filtroFilial">
+                        <option value="">Selecione</option>
+                        <option value="1">Matriz</option>
+                        <option value="2">Filial 1</option>
+                        <option value="3">Filial 2</option>
+                    </select>
+                </div>
+
+                <div class="scrollTabela">
+                    <table class="tabelaEstoque">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Cor</th>
+                                <th>Amostra</th>
+                                <th>Tamanho</th>
+                                <th>Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaEstoque">
+                        </tbody>
+                    </table>
+                </div>
+
+                
+                    
+                </div>
+
+            </div>
+        
+            <div class="conteudoTab" id="operacoes">
+
+                <div class="cabecalhoTabela">
+                    <h3>Operações do Produto</h3>
+                    <span id="totalOperacoes"></span>
+                </div>
+
+                <div class="scrollTabela">
+                    <table class="tabelaOperacoes">
+
+                        <thead>
+
+                            <tr>
+                                <th>Seq.</th>
+                                <th>Fase</th>
+                                <th>Descrição</th>
+                                <th>Setor</th>
+                                <th>Recurso</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tabelaOperacoes">
+
+                        </tbody>
 
            <div class="conteudoTab" id="cores">
     <table>
@@ -368,6 +399,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
     </main>
     <div id="modalImagem">

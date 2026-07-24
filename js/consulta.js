@@ -147,96 +147,54 @@ document.addEventListener("DOMContentLoaded", function () {
 `;
 
 
-const listaMateriais = [
+        const listaEstoque = [
+            { codigo: "220750-01-P", cor: "Branco",       amostra: "#FFFFFF", tamanho: "P", quantidade: 12 },
+            { codigo: "220750-01-M", cor: "Branco",       amostra: "#FFFFFF", tamanho: "M", quantidade: 20 },
+            { codigo: "220750-02-P", cor: "Preto",        amostra: "#000000", tamanho: "P", quantidade: 8  },
+            { codigo: "220750-02-M", cor: "Preto",        amostra: "#000000", tamanho: "M", quantidade: 15 },
+            { codigo: "220750-03-M", cor: "Azul Marinho", amostra: "#1E3A8A", tamanho: "M", quantidade: 5  },
+            { codigo: "220750-04-G", cor: "Vermelho",     amostra: "#D62828", tamanho: "G", quantidade: 10 }
+        ];
 
-    {
-        grupo: "TECIDOS",
-        codigo: "00.04.0097",
-        descricao: "TECNOLOGIC (PERMANENTE)",
-        consumo: "1.000",
-        unidade: "MT",
-        principal: true
-    },
+        const tabelaEstoque = document.getElementById("tabelaEstoque");
 
-    {
-        grupo: "TECIDOS",
-        codigo: "00.07.0021",
-        descricao: "ENTRETELA 7224 (POLO/PLANO/FUSIONADA)",
-        consumo: "0.060",
-        unidade: "MT",
-        principal: false
-    },
+        tabelaEstoque.innerHTML = "";
+        listaEstoque.forEach(item => {
 
-    {
-        grupo: "AVIAMENTO",
-        codigo: "10.02.0002",
-        descricao: "VELCRO 20MM (CX750M)",
-        consumo: "0.060",
-        unidade: "MT",
-        principal: false
-    },
+            tabelaEstoque.innerHTML += `
 
-    {
-        grupo: "AVIAMENTO",
-        codigo: "10.03.0012",
-        descricao: "ELÁSTICO 50MM SHORT",
-        consumo: "0.880",
-        unidade: "UN",
-        principal: false
-    },
+                <tr>
 
-    {
-        grupo: "AVIAMENTO",
-        codigo: "10.04.0044",
-        descricao: "CADARÇO 1,55CM P/ CALÇÃO ADULTO",
-        consumo: "1.000",
-        unidade: "UN",
-        principal: false
-    },
+                    <td>${item.codigo}</td>
 
-    {
-        grupo: "EMBALAGEM",
-        codigo: "20.01.0002",
-        descricao: "EMBALAGEM TRANSPARENTE",
-        consumo: "1.000",
-        unidade: "UN",
-        principal: false
-    }
+                    <td>${item.cor}</td>
 
-];
+                    <td>
+                        <div class="corPreview"
+                             style="background:${item.amostra};"></div>
+                    </td>
 
-const tabelaMateriais = document.getElementById("tabelaMateriais");
+                    <td>${item.tamanho}</td>
 
-tabelaMateriais.innerHTML = "";
-listaMateriais.forEach(material => {
+                    <td>${item.quantidade}</td>
 
-    tabelaMateriais.innerHTML += `
+                </tr>
 
-        <tr>
+            `;
 
-            <td>${material.grupo}</td>
+        });
 
-            <td>${material.codigo}</td>
+       
+        document.getElementById("totalEstoque").textContent =
+            `${listaEstoque.length} registros`;
 
-            <td>${material.descricao}</td>
+        
+       const preco = document.getElementById("precoProduto");
 
-            <td>${material.consumo}</td>
+        if (preco) {
+            preco.value = "R$ 189,90";
+        }
 
-            <td>${material.unidade}</td>
-
-            <td style="text-align:center;">
-                ${material.principal ? "✔️" : ""}
-            </td>
-
-        </tr>
-
-    `;
-
-});
-
-// Atualiza a quantidade de materiais
-document.getElementById("totalMateriais").textContent =
-    `${listaMateriais.length} materiais`;
 
         const referencia = "220750";
 
@@ -338,5 +296,14 @@ modal.addEventListener("click", function (e) {
 
     });
 
-});
+    
+    document.getElementById("filtroFilial").addEventListener("change", function () {
 
+        const filialSelecionada = this.value;
+
+        
+        console.log("Filial selecionada para consulta de estoque:", filialSelecionada);
+
+    });
+
+});
